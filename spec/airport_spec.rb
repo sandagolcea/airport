@@ -21,14 +21,18 @@ describe Airport do
     end
 
     it 'a plane can take off' do
-
+      plane.land_at(airport)
+      plane.take_off(airport)
+      # expect(airport).to be_empty
+      expect(plane).to be_flying
     end
   end
 
   context 'traffic control' do
 
     it 'a plane cannot land if the airport is full' do
-
+      (airport.capacity).times {(Plane.new).land_at(airport)}
+      expect(lambda{(Plane.new).land_at(airport)}).to raise_error(RuntimeError, 'Airport is full!')
     end
 
     # Include a weather condition using a module.
@@ -41,11 +45,11 @@ describe Airport do
 
     context 'weather conditions' do
 
-      it 'a plane cannot take off when there is a storm brewing' do
+      xit 'a plane cannot take off when there is a storm brewing' do
 
       end
 
-      it 'a plane cannot land in the middle of a storm' do
+      xit 'a plane cannot land in the middle of a storm' do
 
       end
     end
@@ -62,19 +66,19 @@ describe Plane do
 
   let(:plane) { Plane.new }
 
-  it 'has a flying status when created' do
+  xit 'has a flying status when created' do
 
   end
 
-  it 'has a flying status when in the air' do
+  xit 'has a flying status when in the air' do
 
   end
 
-  it 'can take off' do
+  xit 'can take off' do
 
   end
 
-  it 'changes its status to flying after taking of' do
+  xit 'changes its status to flying after taking of' do
 
   end
 end
@@ -87,7 +91,7 @@ end
 
 describe "The grand finale (last spec)" do
 
-  it 'all planes can land and all planes can take off' do
+  xit 'all planes can land and all planes can take off' do
 
   end
 end
