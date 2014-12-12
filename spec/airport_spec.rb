@@ -86,8 +86,10 @@ describe Plane do
     expect(airport).to be_empty
   end
 
-  xit 'changes its status to flying after taking of' do
-
+  it 'changes its status to flying after taking of' do
+    plane.land_at(airport)
+    plane.take_off(airport)
+    expect(plane).to be_flying
   end
 end
 
