@@ -12,19 +12,21 @@ CRC
 ---------------
 
 ##Plane
-Responsibility | Collaborators
---------------------------------
-Take off       |    Airport
-Land 		   |	Airport
-is_flying?	   |	   -
+Responsibility | Collaborators  | Status
+---------------|----------------|----------
+is_flying?	   |	   -        |  Done
+Take off       |    Airport     |  Pending
+Land 		   |	Airport     |  Done
+
 
 
 ##Airport
-Responsibility | Collaborators
---------------------------------
-Take off       |    Airport
-Land 		   |	Airport
-is_full?	   |       -
+Responsibility | Collaborators   | Status
+---------------|-----------------|---------
+is_full?	   |       -         | Done
+Take off       |     Plane       | Pending
+Dock Plane     |     Plane       | Done
+Eject Plane    |     Plane       | Pending
 
 
 
