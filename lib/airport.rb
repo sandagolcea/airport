@@ -38,6 +38,4 @@ class Airport
   	# raise "Airport empty!" if @planes.count <= 0
   	true if @planes.count <= 0
   end
-
-
 end

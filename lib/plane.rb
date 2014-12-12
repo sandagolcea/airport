@@ -4,6 +4,7 @@ class Plane
 
 	def initialize
 		self.fly!
+		@status = 'flying'
 	end
 
 	def flying?
@@ -12,6 +13,18 @@ class Plane
 
 	def fly!
 		@flying = true
+	end
+
+	def status!
+		if self.flying?
+			status = 'flying'
+		else
+			status = 'landed'
+		end
+	end
+
+	def status
+		self.status!
 	end
 
 	def take_off(airport)
@@ -23,6 +36,4 @@ class Plane
 		airport.dock_plane(self)
 		@flying = false
 	end
-
-
 end

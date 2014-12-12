@@ -15,7 +15,7 @@ CRC
 Responsibility | Collaborators  | Status
 ---------------|----------------|----------
 is_flying?	   |	   -        |  Done
-Take off       |    Airport     |  Pending
+Take off       |    Airport     |  Done
 Land 		   |	Airport     |  Done
 
 
@@ -24,9 +24,9 @@ Land 		   |	Airport     |  Done
 Responsibility | Collaborators   | Status
 ---------------|-----------------|---------
 is_full?	   |       -         | Done
-Take off       |     Plane       | Pending
+Take off       |     Plane       | Done
 Dock Plane     |     Plane       | Done
-Eject Plane    |     Plane       | Pending
+Release Plane  |     Plane       | Done
 
 
 
