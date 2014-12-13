@@ -1,5 +1,8 @@
+require 'weather_module'
+
 class Airport
-	
+  include Weather	
+
   DEFAULT_CAPACITY = 6
 
   def initialize

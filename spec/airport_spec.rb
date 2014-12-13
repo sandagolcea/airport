@@ -16,7 +16,7 @@ describe Airport do
     it 'a plane can take off' do
       plane.land_at(airport)
       plane.take_off(airport)
-      # expect(airport).to be_empty
+      expect(airport).to be_empty
       expect(plane).to be_flying
     end
   end
@@ -31,6 +31,7 @@ describe Airport do
     context 'weather conditions' do
 
       xit 'a plane cannot take off when there is a storm brewing' do
+        # expect(airport.weather).to_not be_sunny
 
       end
 
