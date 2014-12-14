@@ -5,26 +5,29 @@ describe Airport do
 
   let(:airport) { Airport.new }
   let(:plane) {Plane.new}
+  let(:flying_plane){double :flying_plane, flying?: true}
 
   context 'taking off and landing' do
 
     it 'a plane can land' do
-      plane.land_at(airport)
-      expect(plane).not_to be_flying
+      airport.dock_plane(flying_plane)
+      expect(airport.planes_count).to eq 1
     end
 
     it 'a plane can take off' do
-      plane.land_at(airport)
-      plane.take_off(airport)
-      expect(airport).to be_empty
-      expect(plane).to be_flying
+      airport.dock_plane(flying_plane)
+      # plane landed, still calling it flying_plane. because.
+      airport.release_plane(flying_plane)
+      expect(airport.planes_count).to eq 0
     end
   end
 
   context 'traffic control' do
 
     it 'a plane cannot land if the airport is full' do
-      (airport.capacity).times {(Plane.new).land_at(airport)}
+      # (airport.capacity).times {(Plane.new).land_at(airport)}
+      # >>> Question: doesn't this dock the same plane all over again? && should I check for this?
+      (airport.capacity).times {airport.dock_plane(flying_plane)}
       expect(lambda{(Plane.new).land_at(airport)}).to raise_error(RuntimeError, 'Airport is full!')
     end
 

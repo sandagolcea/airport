@@ -45,4 +45,8 @@ class Airport
   	# raise "Airport empty!" if @planes.count <= 0
   	true if @planes.count <= 0
   end
+
+  def planes_count
+    @planes.count
+  end
 end
