@@ -25,7 +25,11 @@ class Airport
   		else
   			@planes.delete(plane)
   		end
+      # plane has been released
+      return true
   	end
+    # did not release plane
+    false
   end
 
   def capacity

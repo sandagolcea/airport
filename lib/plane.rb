@@ -28,8 +28,7 @@ class Plane
 	end
 
 	def take_off(airport)
-		@flying = true
-		airport.release_plane(self)
+		@flying = true if airport.release_plane(self)
 	end
 
 	def land_at(airport)
