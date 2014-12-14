@@ -7,14 +7,16 @@ describe Airport do
   let(:plane) {Plane.new}
   let(:flying_plane){double :flying_plane, flying?: true}
 
-  context 'taking off and landing' do
+  context '*taking off and landing*' do
 
     it 'a plane can land' do
+      allow(airport).to receive(:stormy?).and_return(false)
       airport.dock_plane(flying_plane)
       expect(airport.planes_count).to eq 1
     end
 
     it 'a plane can take off' do
+      allow(airport).to receive(:stormy?).and_return(false)
       airport.dock_plane(flying_plane)
       # plane landed, still calling it flying_plane. because.
       airport.release_plane(flying_plane)
@@ -25,6 +27,7 @@ describe Airport do
   context 'traffic control' do
 
     it 'a plane cannot land if the airport is full' do
+      allow(airport).to receive(:stormy?).and_return(false)
       # (airport.capacity).times {(Plane.new).land_at(airport)}
       # >>> Question: doesn't this dock the same plane all over again? && should I check for this?
       (airport.capacity).times {airport.dock_plane(flying_plane)}
@@ -34,12 +37,15 @@ describe Airport do
     context 'weather conditions' do
 
       xit 'a plane cannot take off when there is a storm brewing' do
-        # expect(airport.weather).to_not be_sunny
-
+        allow(airport).to receive(:stormy?).and_return(false)
+        airport.dock_plane(plane)
+        # allow(airport).to receive(:stormy?).and_return(true)
+        # expect(lambda {airport.release_plane(plane)}).to raise_error(RuntimeError, 'It is stormy!')
       end
 
-      xit 'a plane cannot land in the middle of a storm' do
-
+      it 'a plane cannot land in the middle of a storm' do
+        allow(airport).to receive(:stormy?).and_return(true)
+        expect(lambda {airport.dock_plane(plane)}).to raise_error(RuntimeError, 'It is stormy!')
       end
     end
   end

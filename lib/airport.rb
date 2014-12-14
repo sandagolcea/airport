@@ -12,9 +12,11 @@ class Airport
   def dock_plane(plane)
   	if full? 
   		raise 'Airport is full!'
+    elsif self.stormy?
+      raise 'It is stormy!'
   	else
   		@planes << plane
-  		# puts "Nr of planes is: #{@planes.count}"
+  		# puts "Nr of planes is: #{self.planes_count}"
   	end
   end
 
@@ -25,11 +27,9 @@ class Airport
   		else
   			@planes.delete(plane)
   		end
-      # plane has been released
-      return true
+      return true # plane has been released
   	end
-    # did not release plane
-    false
+    false # did not release plane
   end
 
   def capacity
@@ -37,12 +37,10 @@ class Airport
   end
 
   def full?
-  	# raise "Plane is full" if @planes.count >= CAPACITY
   	true if @planes.count >= DEFAULT_CAPACITY
   end
 
   def empty?
-  	# raise "Airport empty!" if @planes.count <= 0
   	true if planes_count <= 0
   end
 

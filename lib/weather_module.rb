@@ -12,8 +12,12 @@ module Weather
 		[:sunny,:stormy].sample
 	end
 
-	def sunny?
+	def stormy?
 		weather == :sunny ? true : false
 	end
+
+	# def stormy?
+	# 	true
+	# end
 	
 end
