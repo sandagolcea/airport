@@ -11,7 +11,7 @@ module Weather
 	def weather
 		# [:sunny,:stormy].sample
 		forecast = rand(1..101)
-		if forecast < 10
+		if forecast < 30
 			:sunny
 		else 
 			:stormy
