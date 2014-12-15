@@ -5,7 +5,8 @@ class Airport
 
   DEFAULT_CAPACITY = 6
 
-  def initialize
+  def initialize(options = {})
+    self.capacity = options.fetch(:capacity,DEFAULT_CAPACITY)
   	@planes = []
   end
 
@@ -37,7 +38,11 @@ class Airport
   end
 
   def capacity
-		@capacity ||= DEFAULT_CAPACITY
+    @capacity ||= DEFAULT_CAPACITY
+  end
+    
+  def capacity=(value)
+    @capacity = value
   end
 
   def full?

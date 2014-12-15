@@ -7,7 +7,7 @@ require 'plane'
 # Once all the planes are in the air again, check that they have the status of flying!
 
 describe "The grand finale (last spec)" do
-  let(:airport){Airport.new}
+  let(:airport){Airport.new(:capacity => 6)}
 
   it 'all planes can land and all planes can take off' do
   	# land 6 planes, wait until all of them have landed
