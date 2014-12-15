@@ -10,7 +10,7 @@ describe Plane do
   end
 
   it 'has a flying status when in the air' do
-    allow(airport).to receive(:dock_plane).with(plane)
+    allow(airport).to receive(:dock_plane).with(plane).and_return(true)
 
     expect(plane).to be_flying
     expect(plane.status).to eq 'flying'

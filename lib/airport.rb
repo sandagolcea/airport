@@ -14,8 +14,9 @@ class Airport
   		# raise 'Airport is full!'
       false
     elsif self.stormy?
-      raise 'It is stormy!'
-      # false
+      # >>> just changed this
+      # raise 'It is stormy!'
+      false
   	else
   		@planes << plane
   		# puts "Nr of planes is: #{self.planes_count}"
@@ -27,7 +28,8 @@ class Airport
       false # did not release plane, better to raise errors?
     elsif self.stormy?
       # false # stormy weather, don't let the plane go!
-      raise 'It is stormy!'
+      # raise 'It is stormy!'
+      false
     else
   		if (plane).is_a?(Array)
   			plane.each {|p| @planes.delete(p)}

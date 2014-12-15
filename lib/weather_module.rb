@@ -9,7 +9,13 @@
 module Weather
 
 	def weather
-		[:sunny,:stormy].sample
+		# [:sunny,:stormy].sample
+		forecast = rand(1..101)
+		if forecast < 10
+			:sunny
+		else 
+			:stormy
+		end
 	end
 
 	def stormy?

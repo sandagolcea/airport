@@ -45,12 +45,16 @@ describe Airport do
         allow(airport).to receive(:stormy?).and_return(false)
         airport.dock_plane(plane)
         allow(airport).to receive(:stormy?).and_return(true)
-        expect(lambda {airport.release_plane(plane)}).to raise_error(RuntimeError, 'It is stormy!')
+        # expect(lambda {airport.release_plane(plane)}).to raise_error(RuntimeError, 'It is stormy!')
+        airport.release_plane(plane)
+        expect(airport.planes_count).to eq 1
       end
 
       it 'a plane cannot land in the middle of a storm' do
         allow(airport).to receive(:stormy?).and_return(true)
-        expect(lambda {airport.dock_plane(plane)}).to raise_error(RuntimeError, 'It is stormy!')
+        # expect(lambda {airport.dock_plane(plane)}).to raise_error(RuntimeError, 'It is stormy!')
+        airport.dock_plane(plane)
+        expect(airport.planes_count).to eq 0
       end
     end
   end

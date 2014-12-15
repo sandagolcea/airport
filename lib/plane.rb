@@ -32,7 +32,8 @@ class Plane
 	end
 
 	def land_at(airport)
-		airport.dock_plane(self)
-		@flying = false
+		# airport.dock_plane(self)
+		# @flying = false
+		@flying = false if airport.dock_plane(self)
 	end
 end
