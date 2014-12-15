@@ -27,7 +27,7 @@ class Airport
     if empty?
       false # did not release plane, better to raise errors?
     elsif self.stormy?
-      # false # stormy weather, don't let the plane go!
+      # stormy weather, don't let the plane go!
       # raise 'It is stormy!'
       false
     else

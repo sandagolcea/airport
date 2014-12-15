@@ -15,14 +15,15 @@ describe "The grand finale (last spec)" do
   	landed = 0
   	planes_list = []
   	
-  	# make 6 new planes, in this case capacity is 6..
+  	# make enough new planes to fill the airport
   	# maybe you shouldn't hard code this!!
-  	6.times do
+  	airport.capacity.times do
   		planes_list << Plane.new
   	end
 
+  	# GETTING PLANES TO LAND
   	# land them all:
-  	while airport.planes_count < 6 do
+  	while airport.planes_count < airport.capacity do
   		planes_list.each do |plane|
 	  		if plane.status == 'flying'
   				plane.land_at(airport)
@@ -31,6 +32,30 @@ describe "The grand finale (last spec)" do
   		end
   		# puts airport.planes_count
   	end
+
+  	# puts "Airport is now full" if airport.full? 
+  	# check that all planes have status landed is already done before..
+  	# so aaanyways:
+  	planes_list.each do |plane|
+  		expect(plane.status).to eq 'landed'
+  	end
+
+  	# GETTING PLANES TO TAKE OFF
+  	# what, you landed them all? get them back in the air!
+  	while airport.planes_count > 0 do
+  		planes_list.each do |plane|
+	  		if plane.status == 'landed'
+  				plane.take_off(airport)
+  			end
+  			# puts plane.status
+  		end
+  		# puts airport.planes_count
+  	end
+
+  	planes_list.each do |plane|
+  		expect(plane.status).to eq 'flying'
+  	end
+
 
   end
 end
