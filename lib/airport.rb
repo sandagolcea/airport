@@ -11,9 +11,11 @@ class Airport
 
   def dock_plane(plane)
   	if full? 
-  		raise 'Airport is full!'
+  		# raise 'Airport is full!'
+      false
     elsif self.stormy?
       raise 'It is stormy!'
+      # false
   	else
   		@planes << plane
   		# puts "Nr of planes is: #{self.planes_count}"
