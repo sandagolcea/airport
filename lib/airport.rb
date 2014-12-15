@@ -1,4 +1,4 @@
-require 'weather_module'
+require_relative 'weather_module'
 
 class Airport
   include Weather	
@@ -46,11 +46,11 @@ class Airport
   end
 
   def full?
-  	true if @planes.count >= DEFAULT_CAPACITY
+  	@planes.count >= DEFAULT_CAPACITY
   end
 
   def empty?
-  	true if planes_count <= 0
+  	planes_count <= 0
   end
 
   def planes_count

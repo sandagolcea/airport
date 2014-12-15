@@ -4,7 +4,7 @@ class Plane
 
 	def initialize
 		self.fly!
-		@status = 'flying'
+		# @status = 'flying'
 	end
 
 	def flying?
@@ -16,11 +16,12 @@ class Plane
 	end
 
 	def status!
-		if self.flying?
-			status = 'flying'
-		else
-			status = 'landed'
-		end
+		# if self.flying?
+		# 	status = 'flying'
+		# else
+		# 	status = 'landed'
+		# end
+    status = (self.flying? ? 'flying' : 'landed')
 	end
 
 	def status
