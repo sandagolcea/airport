@@ -10,13 +10,10 @@ class Airport
   end
 
   def dock_plane(plane)
-  	if full? 
-  		# raise 'Airport is full!'
+  	if full? || self.stormy?
       false
-    elsif self.stormy?
-      # >>> just changed this
-      # raise 'It is stormy!'
-      false
+      # raise 'It is stormy!
+      # raise 'Airport is full!'
   	else
   		@planes << plane
   		# puts "Nr of planes is: #{self.planes_count}"
@@ -24,12 +21,10 @@ class Airport
   end
 
   def release_plane(plane)
-    if empty?
-      false # did not release plane, better to raise errors?
-    elsif self.stormy?
-      # stormy weather, don't let the plane go!
+    if empty? || self.stormy?
+      false # did not release plane
       # raise 'It is stormy!'
-      false
+      # >>> would it be better to raise errors?
     else
   		if (plane).is_a?(Array)
   			plane.each {|p| @planes.delete(p)}
@@ -56,4 +51,5 @@ class Airport
   def planes_count
     @planes.count
   end
+
 end
