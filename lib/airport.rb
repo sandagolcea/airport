@@ -14,7 +14,7 @@ class Airport
   	if full? || self.stormy?
       false
       # raise 'It is stormy!
-      # raise 'Airport is full!'
+      # >>> raise 'Airport is full!'
   	else
   		@planes << plane
   		# puts "Nr of planes is: #{self.planes_count}"
@@ -24,8 +24,8 @@ class Airport
   def release(plane)
     if empty? || self.stormy?
       false # did not release plane
-      # raise 'It is stormy!'
-      # >>> would it be better to raise errors?
+      # >>> raise 'It is stormy!'
+      # >>> Question: would it be better to raise errors? then to return false?
     else
   		if (plane).is_a?(Array)
   			plane.each {|p| @planes.delete(p)}
