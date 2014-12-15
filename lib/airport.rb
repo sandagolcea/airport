@@ -21,7 +21,12 @@ class Airport
   end
 
   def release_plane(plane)
-  	unless empty?
+    if empty?
+      false # did not release plane, better to raise errors?
+    elsif self.stormy?
+      # false # stormy weather, don't let the plane go!
+      raise 'It is stormy!'
+    else
   		if (plane).is_a?(Array)
   			plane.each {|p| @planes.delete(p)}
   		else
@@ -29,7 +34,7 @@ class Airport
   		end
       return true # plane has been released
   	end
-    false # did not release plane
+
   end
 
   def capacity

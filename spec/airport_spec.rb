@@ -18,7 +18,7 @@ describe Airport do
     it 'a plane can take off' do
       allow(airport).to receive(:stormy?).and_return(false)
       airport.dock_plane(flying_plane)
-      # plane landed, still calling it flying_plane. because.
+      # plane landed, still calling it flying_plane. because yes.
       airport.release_plane(flying_plane)
       expect(airport.planes_count).to eq 0
     end
@@ -36,11 +36,11 @@ describe Airport do
 
     context 'weather conditions' do
 
-      xit 'a plane cannot take off when there is a storm brewing' do
+      it 'a plane cannot take off when there is a storm brewing' do
         allow(airport).to receive(:stormy?).and_return(false)
         airport.dock_plane(plane)
-        # allow(airport).to receive(:stormy?).and_return(true)
-        # expect(lambda {airport.release_plane(plane)}).to raise_error(RuntimeError, 'It is stormy!')
+        allow(airport).to receive(:stormy?).and_return(true)
+        expect(lambda {airport.release_plane(plane)}).to raise_error(RuntimeError, 'It is stormy!')
       end
 
       it 'a plane cannot land in the middle of a storm' do
