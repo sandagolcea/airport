@@ -45,7 +45,7 @@ describe "The grand finale (last spec)" do
   	while airport.planes_count > 0 do
   		planes_list.each do |plane|
 	  		if plane.status == 'landed'
-  				plane.take_off(airport)
+  				plane.take_off_from(airport)
   			end
   			# puts plane.status
   		end

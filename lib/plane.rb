@@ -27,13 +27,13 @@ class Plane
 		self.status!
 	end
 
-	def take_off(airport)
-		@flying = true if airport.release_plane(self)
+	def take_off_from(airport)
+		@flying = true if airport.release(self)
 	end
 
 	def land_at(airport)
 		# airport.dock_plane(self)
 		# @flying = false
-		@flying = false if airport.dock_plane(self)
+		@flying = false if airport.dock(self)
 	end
 end

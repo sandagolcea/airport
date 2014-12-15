@@ -10,7 +10,7 @@ class Airport
   	@planes = []
   end
 
-  def dock_plane(plane)
+  def dock(plane)
   	if full? || self.stormy?
       false
       # raise 'It is stormy!
@@ -21,7 +21,7 @@ class Airport
   	end
   end
 
-  def release_plane(plane)
+  def release(plane)
     if empty? || self.stormy?
       false # did not release plane
       # raise 'It is stormy!'
