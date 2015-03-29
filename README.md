@@ -31,6 +31,10 @@ Dock Plane     |     Plane
 Release Plane  |     Plane      
 
 
+To run tests
+---------------
+`git clone git@github.com:sandagolcea/airport.git`  
+`rake` or `rspec`  
 
 Points of interest
 ---------------

@@ -1,9 +1,8 @@
 require 'plane'
 
 describe Plane do
-
   let(:plane) { Plane.new }
-  let(:airport) {double :airport}
+  let(:airport) { double :airport }
 
   it 'has a flying status when created' do
     expect(plane).to be_flying
@@ -14,7 +13,6 @@ describe Plane do
 
     expect(plane).to be_flying
     expect(plane.status).to eq 'flying'
-    
     plane.land_at(airport)
     expect(plane.status).to eq 'landed'
   end
